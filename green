@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: dep-1
+  name: dep-1
+  namespace: green
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: dep-2
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: dep-2
+    spec:
+      containers:
+      - image: surya9961/k8sdep:v2
+        name: k8sdep
+        resources: {}
+status: {}
